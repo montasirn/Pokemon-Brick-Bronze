@@ -1,0 +1,28 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Pokemon Brick Bronze"
+run/main_scene="uid://b7tk8o4t8cvv8"
+config/features=PackedStringArray("4.4", "C#", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://Scripts/core/Globals.cs"
+
+[dotnet]
+
+project/assembly_name="Pokemon Brick Bronze"
+
+[rendering]
+
+renderer/rendering_method="mobile"
