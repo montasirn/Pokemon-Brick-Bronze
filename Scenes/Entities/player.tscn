@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://7m6eeqv5yvei"]
+
+[ext_resource type="Texture2D" uid="uid://cvsbl3x06hvtq" path="res://Assets/Characters/output-onlinepngtools.png" id="1_blnjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft3ro"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqm6o"]
+atlas = ExtResource("1_blnjl")
+region = Rect2(25, 42, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbyki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqm6o")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_4",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_ft3ro")
+
+[node name="Input" type="Node" parent="."]
+
+[node name="Movement" type="Node" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 0)
+sprite_frames = SubResource("SpriteFrames_qbyki")
+animation = &"idle_down"
