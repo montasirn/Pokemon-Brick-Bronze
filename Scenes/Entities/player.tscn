@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://7m6eeqv5yvei"]
+[gd_scene load_steps=8 format=3 uid="uid://7m6eeqv5yvei"]
 
 [ext_resource type="Texture2D" uid="uid://cvsbl3x06hvtq" path="res://Assets/Characters/output-onlinepngtools.png" id="1_blnjl"]
 
@@ -8,6 +8,18 @@ size = Vector2(16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nqm6o"]
 atlas = ExtResource("1_blnjl")
 region = Rect2(25, 42, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blnjl"]
+atlas = ExtResource("1_blnjl")
+region = Rect2(25, 109, 16, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbyki"]
+atlas = ExtResource("1_blnjl")
+region = Rect2(25, 142, 16, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svftf"]
+atlas = ExtResource("1_blnjl")
+region = Rect2(25, 75, 16, 31)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qbyki"]
 animations = [{
@@ -19,17 +31,26 @@ animations = [{
 "name": &"idle_down",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blnjl")
+}],
 "loop": true,
 "name": &"idle_left",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbyki")
+}],
 "loop": true,
 "name": &"idle_right",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svftf")
+}],
 "loop": true,
 "name": &"idle_up",
 "speed": 5.0
@@ -59,4 +80,4 @@ shape = SubResource("RectangleShape2D_ft3ro")
 texture_filter = 1
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_qbyki")
-animation = &"idle_down"
+animation = &"idle_up"
