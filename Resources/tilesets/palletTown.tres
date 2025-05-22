@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bb05jkhqwx8fd"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bb05jkhqwx8fd"]
 
 [ext_resource type="Texture2D" uid="uid://dnf2oksy5p8w5" path="res://Assets/levels/Game Boy Advance - Pokemon FireRed LeafGreen - Pallet Town.png" id="1_yb62k"]
+[ext_resource type="Texture2D" uid="uid://cmvdv2rx8uc8" path="res://Assets/levels/Tileset1.png" id="2_kup6k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kup6k"]
 texture = ExtResource("1_yb62k")
@@ -1477,5 +1478,15 @@ texture = ExtResource("1_yb62k")
 62:22/0 = 0
 63:22/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qnnsd"]
+texture = ExtResource("2_kup6k")
+margins = Vector2i(15, 3)
+texture_region_size = Vector2i(16, 15)
+5:2/size_in_atlas = Vector2i(2, 3)
+5:2/next_alternative_id = 2
+5:2/0 = 0
+5:2/0/texture_origin = Vector2i(8, 16)
+
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_kup6k")
+sources/4 = SubResource("TileSetAtlasSource_qnnsd")
