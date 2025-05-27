@@ -1,6 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://7m6eeqv5yvei"]
+[gd_scene load_steps=36 format=3 uid="uid://7m6eeqv5yvei"]
 
 [ext_resource type="Texture2D" uid="uid://cvsbl3x06hvtq" path="res://Assets/Characters/output-onlinepngtools.png" id="1_blnjl"]
+[ext_resource type="Script" uid="uid://dg0mttf4e2mr6" path="res://Scripts/gameplay/Player.cs" id="1_twm3q"]
+[ext_resource type="Script" uid="uid://lupog7g5lvjv" path="res://Scripts/gameplay/characters/PlayerInput.cs" id="2_fgiwp"]
+[ext_resource type="Script" uid="uid://7iw8co6mj2u" path="res://Scripts/gameplay/characters/CharacterMovement.cs" id="3_8liwr"]
+[ext_resource type="Script" uid="uid://bboui2n1e7mbw" path="res://Scripts/gameplay/characters/CharacterAnimation.cs" id="5_5cq8p"]
+[ext_resource type="Script" uid="uid://dnikowismiw32" path="res://Scripts/gameplay/utilities/StateMachine.cs" id="6_2si0u"]
+[ext_resource type="Script" uid="uid://d1ysw5k33mwce" path="res://Scripts/gameplay/states/PlayerRoamState.cs" id="7_2smwd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft3ro"]
 size = Vector2(16, 16)
@@ -256,21 +262,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine")]
+script = ExtResource("1_twm3q")
+StateMachine = NodePath("StateMachine")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_ft3ro")
 
 [node name="Input" type="Node" parent="."]
+script = ExtResource("2_fgiwp")
 
-[node name="Movement" type="Node" parent="."]
+[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("Character", "CharacterInput")]
+script = ExtResource("3_8liwr")
+Character = NodePath("..")
+CharacterInput = NodePath("../Input")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("CharacterInput", "CharacterMovement")]
 texture_filter = 1
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_qbyki")
 animation = &"idle_down"
+script = ExtResource("5_5cq8p")
+CharacterInput = NodePath("../Input")
+CharacterMovement = NodePath("../Movement")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
@@ -281,6 +296,11 @@ position = Vector2(8, 0)
 target_position = Vector2(0, 24)
 collide_with_areas = true
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("Customer")]
+script = ExtResource("6_2si0u")
+Customer = NodePath("..")
 
-[node name="Roam" type="Node" parent="StateMachine"]
+[node name="Roam" type="Node" parent="StateMachine" node_paths=PackedStringArray("PlayerInput", "StateOwner")]
+script = ExtResource("7_2smwd")
+PlayerInput = NodePath("../../Input")
+StateOwner = NodePath("../..")
