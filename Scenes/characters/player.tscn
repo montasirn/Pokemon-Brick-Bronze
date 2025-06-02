@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://7m6eeqv5yvei"]
+[gd_scene load_steps=36 format=3 uid="uid://7m6eeqv5yvei"]
 
 [ext_resource type="Texture2D" uid="uid://cvsbl3x06hvtq" path="res://Assets/Characters/output-onlinepngtools.png" id="1_blnjl"]
 [ext_resource type="Script" uid="uid://dg0mttf4e2mr6" path="res://Scripts/gameplay/Player.cs" id="1_twm3q"]
@@ -24,9 +24,9 @@ region = Rect2(25, 109, 16, 31)
 atlas = ExtResource("1_blnjl")
 region = Rect2(25, 142, 16, 31)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_svftf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgiwp"]
 atlas = ExtResource("1_blnjl")
-region = Rect2(25, 75, 16, 31)
+region = Rect2(25, 75, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1rq5"]
 atlas = ExtResource("1_blnjl")
@@ -76,33 +76,29 @@ region = Rect2(42, 43, 16, 31)
 atlas = ExtResource("1_blnjl")
 region = Rect2(25, 43, 16, 31)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_udx2w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8liwr"]
 atlas = ExtResource("1_blnjl")
-region = Rect2(8, 108, 16, 31)
+region = Rect2(8, 108, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aqs8i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cq8p"]
 atlas = ExtResource("1_blnjl")
-region = Rect2(25, 108, 16, 31)
+region = Rect2(25, 108, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vbauc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2si0u"]
 atlas = ExtResource("1_blnjl")
-region = Rect2(42, 108, 16, 31)
+region = Rect2(42, 108, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p6fni"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2smwd"]
 atlas = ExtResource("1_blnjl")
-region = Rect2(25, 108, 16, 31)
+region = Rect2(8, 141, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w4uu0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gul8o"]
 atlas = ExtResource("1_blnjl")
-region = Rect2(8, 141, 16, 31)
+region = Rect2(25, 141, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_abjg5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf8qx"]
 atlas = ExtResource("1_blnjl")
-region = Rect2(25, 141, 16, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8wcv"]
-atlas = ExtResource("1_blnjl")
-region = Rect2(42, 141, 16, 31)
+region = Rect2(42, 141, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8d5w2"]
 atlas = ExtResource("1_blnjl")
@@ -144,7 +140,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_svftf")
+"texture": SubResource("AtlasTexture_fgiwp")
 }],
 "loop": true,
 "name": &"idle_up",
@@ -213,16 +209,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_udx2w")
+"texture": SubResource("AtlasTexture_8liwr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aqs8i")
+"texture": SubResource("AtlasTexture_5cq8p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vbauc")
+"texture": SubResource("AtlasTexture_2si0u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p6fni")
+"texture": SubResource("AtlasTexture_5cq8p")
 }],
 "loop": true,
 "name": &"walk_left",
@@ -230,16 +226,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w4uu0")
+"texture": SubResource("AtlasTexture_2smwd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_abjg5")
+"texture": SubResource("AtlasTexture_gul8o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e8wcv")
+"texture": SubResource("AtlasTexture_tf8qx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_abjg5")
+"texture": SubResource("AtlasTexture_gul8o")
 }],
 "loop": true,
 "name": &"walk_right",
@@ -284,7 +280,7 @@ CharacterInput = NodePath("../Input")
 texture_filter = 1
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_qbyki")
-animation = &"idle_down"
+animation = &"idle_right"
 script = ExtResource("5_5cq8p")
 CharacterInput = NodePath("../Input")
 CharacterMovement = NodePath("../Movement")
@@ -295,7 +291,7 @@ position_smoothing_enabled = true
 
 [node name="CollisionRay" type="RayCast2D" parent="." node_paths=PackedStringArray("CharacterInput")]
 position = Vector2(8, 0)
-target_position = Vector2(0, 16)
+target_position = Vector2(0, 24)
 collide_with_areas = true
 script = ExtResource("6_fgiwp")
 CharacterInput = NodePath("../Input")
@@ -304,7 +300,8 @@ CharacterInput = NodePath("../Input")
 script = ExtResource("6_2si0u")
 Customer = NodePath("..")
 
-[node name="Roam" type="Node" parent="StateMachine" node_paths=PackedStringArray("PlayerInput", "StateOwner")]
+[node name="Roam" type="Node" parent="StateMachine" node_paths=PackedStringArray("PlayerInput", "CharacterMovement", "StateOwner")]
 script = ExtResource("7_2smwd")
 PlayerInput = NodePath("../../Input")
+CharacterMovement = NodePath("../../Movement")
 StateOwner = NodePath("../..")
