@@ -203,7 +203,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_43gew")
 }],
-"loop": false,
+"loop": true,
 "name": &"walk_down",
 "speed": 5.0
 }, {
@@ -260,6 +260,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("StateMachine")]
+z_index = 5
 script = ExtResource("1_twm3q")
 StateMachine = NodePath("StateMachine")
 
@@ -280,18 +281,17 @@ CharacterInput = NodePath("../Input")
 texture_filter = 1
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_qbyki")
-animation = &"idle_right"
+animation = &"idle_left"
 script = ExtResource("5_5cq8p")
 CharacterInput = NodePath("../Input")
 CharacterMovement = NodePath("../Movement")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
-position_smoothing_enabled = true
 
 [node name="CollisionRay" type="RayCast2D" parent="." node_paths=PackedStringArray("CharacterInput")]
 position = Vector2(8, 0)
-target_position = Vector2(0, 24)
+target_position = Vector2(0, 16)
 collide_with_areas = true
 script = ExtResource("6_fgiwp")
 CharacterInput = NodePath("../Input")

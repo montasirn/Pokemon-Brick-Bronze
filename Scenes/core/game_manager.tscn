@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://b7tk8o4t8cvv8"]
+[gd_scene load_steps=2 format=3 uid="uid://b7tk8o4t8cvv8"]
 
-[node name="GameManager" type="Node"]
+[ext_resource type="Script" uid="uid://dv5yfmbaktutt" path="res://Scenes/core/GameManager.cs" id="1_08g74"]
+
+[node name="GameManager" type="Node" node_paths=PackedStringArray("GameViewPort")]
+script = ExtResource("1_08g74")
+GameViewPort = NodePath("Control/SubViewportContainer/SubViewport")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
