@@ -44,6 +44,6 @@ shape = SubResource("RectangleShape2D_oye7p")
 position = Vector2(152, 32)
 TargetLevelName = 2
 TargetLevelTrigger = 1
-EntryDirection = Vector2(1.5, 5)
+EntryDirection = Vector2(1.5, 0)
 
 [node name="SpawnPoints" type="Node2D" parent="."]

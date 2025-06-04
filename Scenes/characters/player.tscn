@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://7m6eeqv5yvei"]
+[gd_scene load_steps=37 format=3 uid="uid://7m6eeqv5yvei"]
 
 [ext_resource type="Texture2D" uid="uid://cvsbl3x06hvtq" path="res://Assets/Characters/output-onlinepngtools.png" id="1_blnjl"]
 [ext_resource type="Script" uid="uid://dg0mttf4e2mr6" path="res://Scripts/gameplay/Player.cs" id="1_twm3q"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://7iw8co6mj2u" path="res://Scripts/gameplay/characters/CharacterMovement.cs" id="3_8liwr"]
 [ext_resource type="Script" uid="uid://bboui2n1e7mbw" path="res://Scripts/gameplay/characters/CharacterAnimation.cs" id="5_5cq8p"]
 [ext_resource type="Script" uid="uid://dnikowismiw32" path="res://Scripts/gameplay/utilities/StateMachine.cs" id="6_2si0u"]
+[ext_resource type="Script" uid="uid://d28og3ok27rie" path="res://Scenes/characters/PlayerCamera.cs" id="6_8liwr"]
 [ext_resource type="Script" uid="uid://ctasca4lsohho" path="res://Scripts/gameplay/characters/CharacterCollisionRay.cs" id="6_fgiwp"]
 [ext_resource type="Script" uid="uid://d1ysw5k33mwce" path="res://Scripts/gameplay/states/PlayerRoamState.cs" id="7_2smwd"]
 
@@ -288,10 +289,11 @@ CharacterMovement = NodePath("../Movement")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+script = ExtResource("6_8liwr")
 
 [node name="CollisionRay" type="RayCast2D" parent="." node_paths=PackedStringArray("CharacterInput")]
 position = Vector2(8, 0)
-target_position = Vector2(0, 16)
+target_position = Vector2(0, 24)
 collide_with_areas = true
 script = ExtResource("6_fgiwp")
 CharacterInput = NodePath("../Input")

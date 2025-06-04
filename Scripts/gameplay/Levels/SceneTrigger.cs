@@ -1,3 +1,7 @@
+using System.Threading;
+using System.Timers;
+using System;
+using System.Threading.Tasks;
 using Game.Core;
 using Godot;
 
@@ -28,8 +32,11 @@ namespace Game.Gameplay
 			BodyEntered += OnBodyEntered;
 		}
 
-		public void OnBodyEntered(Node2D body)
+		public async void OnBodyEntered(Node2D body)
 		{
+			if (SceneManager.IsChanging)
+				return;
+
 			if (body.Name != "Player")
 				return;
 
@@ -37,6 +44,13 @@ namespace Game.Gameplay
 				Logger.Info("Uh oh!  The door is locked ...");
 
 			SceneManager.ChangeLevel(levelName: TargetLevelName, trigger: TargetLevelTrigger);
+
+			
+		}
+
+		private async void DelayMethod()
+		{
+    	await Task.Delay(TimeSpan.FromMilliseconds(1000));
 		}
 
 		public override void _EnterTree()

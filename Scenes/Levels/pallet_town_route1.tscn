@@ -12,8 +12,7 @@ size = Vector2(48, 16)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_w1gb5")
-Bottom = 296
-Left = -16
+Bottom = 640
 Right = 368
 
 [node name="Tiles" type="Node2D" parent="."]
@@ -45,13 +44,13 @@ position = Vector2(184, -8)
 CurrentLevelTrigger = 1
 
 [node name="SceneTrigger4" parent="SceneTriggers" instance=ExtResource("3_6wnjc")]
-position = Vector2(200, 632)
+position = Vector2(192, 632)
 TargetLevelTrigger = 2
 CurrentLevelTrigger = 3
 EntryDirection = Vector2(0, -1.5)
 
 [node name="SceneTrigger5" parent="SceneTriggers" instance=ExtResource("3_6wnjc")]
-position = Vector2(216, 632)
+position = Vector2(208, 632)
 TargetLevelTrigger = 2
 CurrentLevelTrigger = 4
 EntryDirection = Vector2(0, -1)

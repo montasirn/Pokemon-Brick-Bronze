@@ -54,4 +54,4 @@ EntryDirection = Vector2(0, 1)
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="SpawnPoints" parent="SpawnPoints" instance=ExtResource("4_pd5ch")]
-position = Vector2(152, 152)
+position = Vector2(64, 132)
