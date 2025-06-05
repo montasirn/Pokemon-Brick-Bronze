@@ -12,9 +12,8 @@ size = Vector2(208, 16)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ko1lg")
-Bottom = 296
-Left = -16
-Right = 368
+Bottom = 208
+Right = 208
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -43,13 +42,13 @@ shape = SubResource("RectangleShape2D_iqk6h")
 [node name="StaticBody2D2" type="StaticBody2D" parent="Boundaries"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D2"]
-position = Vector2(104, 208)
+position = Vector2(104, 216)
 shape = SubResource("RectangleShape2D_b55tg")
 
 [node name="SceneTriggers" type="Node2D" parent="."]
 
 [node name="SceneTrigger" parent="SceneTriggers" instance=ExtResource("3_bjvtk")]
-position = Vector2(96, 190)
+position = Vector2(96, 200)
 TargetLevelTrigger = 1
 EntryDirection = Vector2(0, -1)
 

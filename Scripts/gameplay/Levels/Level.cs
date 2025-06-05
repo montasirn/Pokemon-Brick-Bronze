@@ -1,3 +1,4 @@
+using System;
 using Game.Core;
 using Godot;
 
@@ -26,5 +27,10 @@ namespace Game.Gameplay
 		{
 			Logger.Info($"Loading level {LevelName} ...");
 		}
-	}
+
+        public static explicit operator Level(string v)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

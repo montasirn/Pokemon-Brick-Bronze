@@ -12,9 +12,8 @@ size = Vector2(208, 16)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_60a5g")
-Bottom = 296
-Left = -16
-Right = 368
+Bottom = 144
+Right = 208
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -47,3 +46,4 @@ TargetLevelTrigger = 1
 EntryDirection = Vector2(1.5, 0)
 
 [node name="SpawnPoints" type="Node2D" parent="."]
+position = Vector2(56, 88)

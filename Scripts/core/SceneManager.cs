@@ -22,11 +22,14 @@ namespace Game.Core
 		[Export]
 		public Array<Level> AllLevels;
 
+		[Export]
+		public Control UI;
+
 		public override void _Ready()
 		{
 			Instance = this;
 			IsChanging = false;
-
+			UI.ProcessMode = Node.ProcessModeEnum.Always;
 			Logger.Info("Loading scene manager ...");
 		}
 
@@ -85,7 +88,7 @@ namespace Game.Core
 				throw new Exception("Missing spawn point(s)!");
 
 			var spawnPoint = (SpawnPoint)spawnPoints[0];
-			var player = GD.Load<PackedScene>("res://scenes/characters/player.tscn").Instantiate<Player>();
+			var player = GD.Load<PackedScene>("res://Scenes/characters/player.tscn").Instantiate<Player>();
 
 			GameManager.AddPlayer(player);
 			GameManager.GetPlayer().Position = spawnPoint.Position;

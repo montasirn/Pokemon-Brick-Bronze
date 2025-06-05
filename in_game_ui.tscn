@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://cssiin783gl05"]
+
+[ext_resource type="Script" uid="uid://dklqqpjexagrf" path="res://Scripts/core/PopUpMenu.cs" id="1_cwbuu"]
+[ext_resource type="Texture2D" uid="uid://d4dkbw1bt6grg" path="res://Assets/Menu/HXC8xAA.png" id="1_onc8m"]
+[ext_resource type="FontFile" uid="uid://cxlf8olcm6nbo" path="res://Assets/Menu/pokemon_fire_red.ttf" id="2_e6quo"]
+[ext_resource type="Texture2D" uid="uid://c0htc2pfs17go" path="res://Assets/Menu/ui_arrow_left_right.png" id="3_e6quo"]
+
+[node name="inGameUI" type="Control"]
+z_index = 101
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+
+[node name="popUpMenu" type="MarginContainer" parent="." node_paths=PackedStringArray("menu", "buttons")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cwbuu")
+menu = NodePath("MarginContainer")
+buttons = NodePath("MarginContainer/baseMenuScreen/NinePatchRect/MarginContainer/VBoxContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="popUpMenu"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="baseMenuScreen" type="MarginContainer" parent="popUpMenu/MarginContainer"]
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="popUpMenu/MarginContainer/baseMenuScreen"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_onc8m")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="popUpMenu/MarginContainer/baseMenuScreen/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popUpMenu/MarginContainer/baseMenuScreen/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Pokemon" type="Button" parent="popUpMenu/MarginContainer/baseMenuScreen/NinePatchRect/MarginContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_e6quo")
+theme_override_font_sizes/font_size = 25
+text = "Pokemon"
+icon = ExtResource("3_e6quo")
+flat = true
+
+[node name="Bag" type="Button" parent="popUpMenu/MarginContainer/baseMenuScreen/NinePatchRect/MarginContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_e6quo")
+theme_override_font_sizes/font_size = 25
+text = "Bag
+"
+icon = ExtResource("3_e6quo")
+flat = true
+
+[node name="Save" type="Button" parent="popUpMenu/MarginContainer/baseMenuScreen/NinePatchRect/MarginContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_e6quo")
+theme_override_font_sizes/font_size = 25
+text = "Save"
+icon = ExtResource("3_e6quo")
+flat = true
+
+[node name="Quit" type="Button" parent="popUpMenu/MarginContainer/baseMenuScreen/NinePatchRect/MarginContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_e6quo")
+theme_override_font_sizes/font_size = 25
+text = "Quit
+"
+icon = ExtResource("3_e6quo")
+flat = true
