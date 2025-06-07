@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq0kjyowhiyux"]
+
+[ext_resource type="Texture2D" uid="uid://bhjj23pr8nkyx" path="res://Assets/battle/Game Boy Advance - Pokemon FireRed LeafGreen - Battle Backgrounds.png" id="1_oxp8w"]
+[ext_resource type="PackedScene" uid="uid://bvujn7q81l4jw" path="res://Scenes/Battle/trainer.tscn" id="2_7sfm4"]
+[ext_resource type="Script" uid="uid://bpihqewh6mqbp" path="res://Scripts/gameplay/states/battle.gd" id="2_i431l"]
+[ext_resource type="Script" uid="uid://dkk805ux5eis2" path="res://Scripts/gameplay/utilities/graphic.gd" id="3_6t8i5"]
+[ext_resource type="Resource" uid="uid://csdwduuld2ten" path="res://trainers/blue.tres" id="3_dw4jg"]
+[ext_resource type="PackedScene" uid="uid://chhpo1pkbagoa" path="res://Scenes/Battle/pokemon_info_enemy.tscn" id="4_6t8i5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i431l"]
+atlas = ExtResource("1_oxp8w")
+region = Rect2(249, 6, 240, 112)
+
+[node name="battle" type="TextureRect"]
+texture_filter = 1
+offset_right = 737.0
+offset_bottom = 466.0
+texture = SubResource("AtlasTexture_i431l")
+script = ExtResource("2_i431l")
+player = ExtResource("3_dw4jg")
+enemy = ExtResource("3_dw4jg")
+
+[node name="enemy" type="Marker2D" parent="."]
+position = Vector2(7.645, 0)
+script = ExtResource("3_6t8i5")
+
+[node name="pokemon" type="Marker2D" parent="enemy"]
+position = Vector2(544.355, 248)
+
+[node name="trainer" parent="enemy" instance=ExtResource("2_7sfm4")]
+
+[node name="stats" parent="enemy" instance=ExtResource("4_6t8i5")]
+
+[node name="player" type="Marker2D" parent="."]
+position = Vector2(7.645, 0)
+script = ExtResource("3_6t8i5")
+
+[node name="pokemon" type="Marker2D" parent="player"]
+position = Vector2(176.355, 440)
+
+[node name="trainer" parent="player" instance=ExtResource("2_7sfm4")]
+
+[node name="stats" parent="player" instance=ExtResource("4_6t8i5")]

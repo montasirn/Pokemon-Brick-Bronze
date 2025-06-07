@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://chhpo1pkbagoa"]
+
+[ext_resource type="Script" uid="uid://ci874i1nrvrrw" path="res://Scripts/gameplay/utilities/pokemon_info.gd" id="1_h420j"]
+[ext_resource type="Texture2D" uid="uid://ckr3683uv4n5u" path="res://Assets/battle/battle_elements.png" id="2_koti6"]
+[ext_resource type="FontFile" uid="uid://cxlf8olcm6nbo" path="res://Assets/Menu/pokemon_fire_red.ttf" id="3_541nu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgw6r"]
+atlas = ExtResource("2_koti6")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvuam"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2y8ga"]
+bg_color = Color(0.439216, 0.972549, 0.658824, 1)
+
+[node name="rival_stats" type="Node2D"]
+position = Vector2(48, 16)
+script = ExtResource("1_h420j")
+
+[node name="level_label" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_sgw6r")
+region_enabled = true
+region_rect = Rect2(3, 3, 100, 29)
+
+[node name="name" type="Label" parent="."]
+texture_filter = 1
+offset_left = -45.0
+offset_top = -14.0
+offset_right = 9.0
+offset_bottom = 2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_541nu")
+text = "Bulbasaur"
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="level" type="Label" parent="."]
+texture_filter = 1
+offset_left = 31.0
+offset_top = -14.0
+offset_right = 39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_541nu")
+text = "5"
+metadata/_edit_use_anchors_ = true
+
+[node name="hp_bar" type="Node2D" parent="."]
+
+[node name="BoxContainer" type="BoxContainer" parent="hp_bar"]
+offset_left = -47.0
+offset_top = -1.0
+offset_right = -17.0
+offset_bottom = 13.0
+scale = Vector2(0.64, 0.64)
+
+[node name="Label" type="Label" parent="hp_bar/BoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_541nu")
+text = "10/20"
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="hp_bar"]
+offset_left = -11.0
+offset_top = 2.0
+offset_right = 37.0
+offset_bottom = 6.0
+
+[node name="ProgressBar" type="ProgressBar" parent="hp_bar"]
+offset_left = -10.0
+offset_top = 2.0
+offset_right = 36.0
+offset_bottom = 6.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_dvuam")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2y8ga")
+value = 50.0
+rounded = true
+allow_greater = true
+show_percentage = false

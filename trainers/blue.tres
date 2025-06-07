@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="TrainerModel" load_steps=4 format=3 uid="uid://csdwduuld2ten"]
+
+[ext_resource type="Script" uid="uid://baqtrfkxjkkf0" path="res://Scripts/gameplay/utilities/trainer_model.gd" id="1_65k4j"]
+[ext_resource type="PackedScene" uid="uid://cqxxqnq60jvv2" path="res://trainers/blue_trainer_graphic.tscn" id="1_eofvl"]
+[ext_resource type="Resource" uid="uid://d05f6tn35hndg" path="res://pokemon/charmander/charmander.tres" id="2_jehuc"]
+
+[resource]
+script = ExtResource("1_65k4j")
+id = ""
+name = "Blue"
+pokemon = Array[Resource]([ExtResource("2_jehuc")])
+items = Array[Resource]([])
+is_player = true
+beat_flag_mutations = Array[Resource]([])
+loose_flag_mutations = Array[Resource]([])
+battle_graphic = ExtResource("1_eofvl")
+metadata/_custom_type_script = "uid://baqtrfkxjkkf0"

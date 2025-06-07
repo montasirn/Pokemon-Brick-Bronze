@@ -14,7 +14,7 @@ sources/0 = SubResource("TileSetAtlasSource_3eid7")
 script = ExtResource("1_yofpf")
 FadeRect = NodePath("Control/ColorRect")
 AllLevels = []
-UI = NodePath("")
+UI = NodePath("CanvasLayer/inGameUI")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3

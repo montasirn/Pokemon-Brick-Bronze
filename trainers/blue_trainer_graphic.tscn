@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqxxqnq60jvv2"]
+
+[ext_resource type="Texture2D" uid="uid://cyrr3jasrkubx" path="res://Assets/battle/Trainers.png" id="1_i4umk"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_i4umk")
+region_enabled = true
+region_rect = Rect2(8, 967, 64, 64)

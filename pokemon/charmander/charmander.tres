@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d05f6tn35hndg"]
+
+[ext_resource type="Script" uid="uid://bkho06md78evi" path="res://Scripts/gameplay/utilities/pokemon_model.gd" id="1_4xnpg"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_4xnpg")
+name = "Charmander"
+hp = 0
+max_hp = 0
+xp = 1
+exp_stat = 1
+attack = 1
+defense = 1
+speed = 1
+wild = false
+moves = Array[Resource]([])
+moves_to_learn = {}
+level = 0

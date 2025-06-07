@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvujn7q81l4jw"]
+
+[ext_resource type="Script" uid="uid://c7xpk2lmxh524" path="res://Scripts/gameplay/utilities/trainer_graphic.gd" id="1_g65l4"]
+[ext_resource type="Texture2D" uid="uid://cyrr3jasrkubx" path="res://Assets/battle/Trainers.png" id="2_v76hn"]
+
+[node name="trainer" type="Node2D"]
+script = ExtResource("1_g65l4")
+
+[node name="front" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_v76hn")
+region_enabled = true
+region_rect = Rect2(8, 242, 64, 64)
+
+[node name="back" type="Sprite2D" parent="."]
+texture = ExtResource("2_v76hn")
+region_enabled = true
+region_rect = Rect2(8, 242, 64, 64)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwn5msvoan0u4"]
+
+[ext_resource type="Texture2D" uid="uid://d1a1vf61e7cfo" path="res://Assets/battle/moves.png" id="1_tgtf2"]
+
+[node name="ember_graphic" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tgtf2")
+region_enabled = true
+region_rect = Rect2(242, 1227, 31, 31)

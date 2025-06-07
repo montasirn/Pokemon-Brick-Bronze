@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckcftjein5sap"]
+
+[ext_resource type="Script" uid="uid://tntj1vnfwcv6" path="res://Scripts/gameplay/utilities/battle_graphic.gd" id="1_dbrpp"]
+[ext_resource type="Texture2D" uid="uid://dyy4otws8ujlc" path="res://Assets/Characters/pokemon/pokemon.png" id="1_glpcd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbrpp"]
+atlas = ExtResource("1_glpcd")
+region = Rect2(0, 0, 1971, 1836)
+
+[node name="CharmanderBattleGraphic" type="Node2D"]
+script = ExtResource("1_dbrpp")
+
+[node name="front" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("1_glpcd")
+region_enabled = true
+region_rect = Rect2(401, 46, 64, 64)
+
+[node name="back" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_dbrpp")
+region_enabled = true
+region_rect = Rect2(401, 111, 64, 64)

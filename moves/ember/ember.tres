@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MoveModel" load_steps=3 format=3 uid="uid://b75gsi5nsg1jr"]
+
+[ext_resource type="Script" uid="uid://b23niqme775js" path="res://moves/move_model.gd" id="1_6t271"]
+[ext_resource type="PackedScene" uid="uid://dwn5msvoan0u4" path="res://moves/ember/ember_graphic.tscn" id="1_qque5"]
+
+[resource]
+script = ExtResource("1_6t271")
+name = "ember"
+power = 1
+accuracy = 1.0
+type = 1
+fx = ExtResource("1_qque5")
+metadata/_custom_type_script = "uid://b23niqme775js"
