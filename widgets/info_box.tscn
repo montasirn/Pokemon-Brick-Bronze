@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvprnmcvu2xs1"]
+
+[ext_resource type="Texture2D" uid="uid://jrq0qk705gen" path="res://widgets/sprites/panel.png" id="2"]
+[ext_resource type="Script" uid="uid://drpne2omhxcp3" path="res://Scripts/gameplay/menu/info.gd" id="2_v1ycu"]
+[ext_resource type="Texture2D" uid="uid://f6qsmtx23k06" path="res://widgets/sprites/arrow.png" id="4"]
+[ext_resource type="AudioStream" uid="uid://brefedcwa3yt3" path="res://widgets/sounds/activate.wav" id="5"]
+[ext_resource type="Theme" uid="uid://btg26ghgsrnot" path="res://widgets/theme.tres" id="6"]
+
+[node name="info" type="PanelContainer"]
+size_flags_vertical = 10
+mouse_filter = 2
+theme = ExtResource("6")
+script = ExtResource("2_v1ycu")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="arrow" type="TextureRect" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("4")
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="info_text" type="RichTextLabel" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+custom_effects = [null]
+
+[node name="activate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5")
+
+[node name="success" type="AudioStreamPlayer" parent="."]
+pitch_scale = 1.5

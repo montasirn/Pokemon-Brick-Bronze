@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bipl0j3r2gxmf"]
+
+[ext_resource type="Script" uid="uid://cc7tk4joubjo7" path="res://Scripts/gameplay/menu/pokemon_menu.gd" id="2_meldy"]
+[ext_resource type="Theme" uid="uid://btg26ghgsrnot" path="res://widgets/theme.tres" id="3"]
+[ext_resource type="Resource" uid="uid://d05f6tn35hndg" path="res://pokemon/charmander/charmander.tres" id="3_cldeo"]
+[ext_resource type="PackedScene" uid="uid://d2ssoqa8sj8ml" path="res://Scenes/UI/info_box.tscn" id="4_meldy"]
+
+[node name="pokemon_menu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("3")
+color = Color(0.113725, 0.368627, 0.482353, 1)
+script = ExtResource("2_meldy")
+pokemon = [ExtResource("3_cldeo")]
+
+[node name="col_1" type="VBoxContainer" parent="."]
+layout_mode = 0
+
+[node name="info" parent="." instance=ExtResource("4_meldy")]
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 16.0
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

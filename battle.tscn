@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq0kjyowhiyux"]
+[gd_scene load_steps=15 format=3 uid="uid://bq0kjyowhiyux"]
 
 [ext_resource type="Texture2D" uid="uid://bhjj23pr8nkyx" path="res://Assets/battle/Game Boy Advance - Pokemon FireRed LeafGreen - Battle Backgrounds.png" id="1_oxp8w"]
 [ext_resource type="PackedScene" uid="uid://bvujn7q81l4jw" path="res://Scenes/Battle/trainer.tscn" id="2_7sfm4"]
@@ -6,15 +6,38 @@
 [ext_resource type="Script" uid="uid://dkk805ux5eis2" path="res://Scripts/gameplay/utilities/graphic.gd" id="3_6t8i5"]
 [ext_resource type="Resource" uid="uid://csdwduuld2ten" path="res://trainers/blue.tres" id="3_dw4jg"]
 [ext_resource type="PackedScene" uid="uid://chhpo1pkbagoa" path="res://Scenes/Battle/pokemon_info_enemy.tscn" id="4_6t8i5"]
+[ext_resource type="PackedScene" uid="uid://d2ssoqa8sj8ml" path="res://Scenes/UI/info_box.tscn" id="7_lcjiy"]
+[ext_resource type="Script" uid="uid://dm4jrswnluhpg" path="res://Scripts/gameplay/menu/menu.gd" id="8_b1i6x"]
+[ext_resource type="Texture2D" uid="uid://d4dkbw1bt6grg" path="res://Assets/Menu/HXC8xAA.png" id="8_ol6im"]
+[ext_resource type="PackedScene" uid="uid://cbes82vvrak6c" path="res://widgets/menu_button.tscn" id="9_b1i6x"]
+[ext_resource type="PackedScene" uid="uid://bipl0j3r2gxmf" path="res://widgets/pokemon_menu.tscn" id="11_b1i6x"]
+[ext_resource type="Script" uid="uid://bkho06md78evi" path="res://Scripts/gameplay/utilities/pokemon_model.gd" id="12_sl0w2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i431l"]
 atlas = ExtResource("1_oxp8w")
 region = Rect2(249, 6, 240, 112)
 
+[sub_resource type="Resource" id="Resource_elvfr"]
+resource_local_to_scene = true
+script = ExtResource("12_sl0w2")
+name = "Charmander"
+hp = 0
+max_hp = 0
+xp = 1
+exp_stat = 1
+attack = 1
+defense = 1
+speed = 1
+wild = false
+moves = Array[Resource]([])
+moves_to_learn = {}
+level = 0
+
 [node name="battle" type="TextureRect"]
 texture_filter = 1
 offset_right = 737.0
-offset_bottom = 466.0
+offset_bottom = 409.0
+scale = Vector2(1.565, 1.565)
 texture = SubResource("AtlasTexture_i431l")
 script = ExtResource("2_i431l")
 player = ExtResource("3_dw4jg")
@@ -22,22 +45,196 @@ enemy = ExtResource("3_dw4jg")
 
 [node name="enemy" type="Marker2D" parent="."]
 position = Vector2(7.645, 0)
+scale = Vector2(1.565, 1.565)
 script = ExtResource("3_6t8i5")
 
 [node name="pokemon" type="Marker2D" parent="enemy"]
 position = Vector2(544.355, 248)
+scale = Vector2(1.565, 1.565)
 
 [node name="trainer" parent="enemy" instance=ExtResource("2_7sfm4")]
+scale = Vector2(1.565, 1.565)
 
 [node name="stats" parent="enemy" instance=ExtResource("4_6t8i5")]
+scale = Vector2(1.565, 1.565)
 
 [node name="player" type="Marker2D" parent="."]
 position = Vector2(7.645, 0)
+scale = Vector2(1.565, 1.565)
 script = ExtResource("3_6t8i5")
 
 [node name="pokemon" type="Marker2D" parent="player"]
-position = Vector2(176.355, 440)
+position = Vector2(1928.35, -30)
 
 [node name="trainer" parent="player" instance=ExtResource("2_7sfm4")]
+scale = Vector2(1.565, 1.565)
 
 [node name="stats" parent="player" instance=ExtResource("4_6t8i5")]
+scale = Vector2(1.565, 1.565)
+
+[node name="info" parent="." instance=ExtResource("7_lcjiy")]
+layout_mode = 0
+offset_top = -10.0
+offset_right = 736.0
+offset_bottom = 82.0
+
+[node name="action_menu" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 409.0
+offset_right = 741.0
+offset_bottom = 532.0
+script = ExtResource("8_b1i6x")
+menu_items = Array[NodePath]([NodePath("m/m/rows/col_1/fight"), NodePath("m/m/rows/col_1/item"), NodePath("m/m/rows/col_2/pokemon"), NodePath("m/m/rows/col_2/run")])
+
+[node name="m" type="NinePatchRect" parent="action_menu"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_ol6im")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="m" type="MarginContainer" parent="action_menu/m"]
+layout_mode = 0
+offset_right = 736.0
+offset_bottom = 118.0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="rows" type="HBoxContainer" parent="action_menu/m/m"]
+layout_mode = 2
+
+[node name="col_1" type="VBoxContainer" parent="action_menu/m/m/rows"]
+layout_mode = 2
+
+[node name="fight" parent="action_menu/m/m/rows/col_1" instance=ExtResource("9_b1i6x")]
+layout_mode = 2
+capitalize = true
+text = "Fight"
+
+[node name="item" parent="action_menu/m/m/rows/col_1" instance=ExtResource("9_b1i6x")]
+layout_mode = 2
+capitalize = true
+text = "item"
+
+[node name="col_2" type="VBoxContainer" parent="action_menu/m/m/rows"]
+layout_mode = 2
+
+[node name="pokemon" parent="action_menu/m/m/rows/col_2" instance=ExtResource("9_b1i6x")]
+layout_mode = 2
+capitalize = true
+text = "pokemon"
+
+[node name="run" parent="action_menu/m/m/rows/col_2" instance=ExtResource("9_b1i6x")]
+layout_mode = 2
+capitalize = true
+text = "run"
+
+[node name="fight_menu" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 414.0
+offset_right = 736.0
+offset_bottom = 527.0
+script = ExtResource("8_b1i6x")
+
+[node name="m" type="NinePatchRect" parent="fight_menu"]
+layout_mode = 2
+texture = ExtResource("8_ol6im")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="m" type="MarginContainer" parent="fight_menu/m"]
+layout_mode = 0
+offset_right = 736.0
+offset_bottom = 113.0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="col_1" type="VBoxContainer" parent="fight_menu/m/m"]
+layout_mode = 2
+
+[node name="items" type="PanelContainer" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 312.0
+offset_top = 82.0
+offset_right = 736.0
+offset_bottom = 527.0
+script = ExtResource("8_b1i6x")
+
+[node name="m" type="NinePatchRect" parent="items"]
+layout_mode = 2
+texture = ExtResource("8_ol6im")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="m" type="MarginContainer" parent="items/m"]
+layout_mode = 0
+offset_right = 736.0
+offset_bottom = 113.0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="col_1" type="VBoxContainer" parent="items/m/m"]
+layout_mode = 2
+
+[node name="yes_no_menu" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 348.0
+offset_right = 138.0
+offset_bottom = 414.0
+script = ExtResource("8_b1i6x")
+
+[node name="m" type="NinePatchRect" parent="yes_no_menu"]
+layout_mode = 2
+texture = ExtResource("8_ol6im")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="m" type="MarginContainer" parent="yes_no_menu/m"]
+layout_mode = 0
+offset_right = 133.0
+offset_bottom = 128.0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="col_1" type="VBoxContainer" parent="yes_no_menu/m/m"]
+layout_mode = 2
+
+[node name="yes" parent="yes_no_menu/m/m/col_1" instance=ExtResource("9_b1i6x")]
+layout_mode = 2
+theme_override_constants/separation = 5
+capitalize = true
+text = "yes"
+
+[node name="no" parent="yes_no_menu/m/m/col_1" instance=ExtResource("9_b1i6x")]
+layout_mode = 2
+capitalize = true
+text = "No"
+
+[node name="pokemon_menu" parent="." instance=ExtResource("11_b1i6x")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+pokemon = [SubResource("Resource_elvfr")]

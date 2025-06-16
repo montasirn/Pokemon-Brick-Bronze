@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d05f6tn35hndg"]
+[gd_resource type="Resource" script_class="PokemonModel" load_steps=2 format=3 uid="uid://d05f6tn35hndg"]
 
 [ext_resource type="Script" uid="uid://bkho06md78evi" path="res://Scripts/gameplay/utilities/pokemon_model.gd" id="1_4xnpg"]
 

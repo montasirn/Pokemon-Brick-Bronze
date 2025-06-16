@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2ssoqa8sj8ml"]
+
+[ext_resource type="Script" uid="uid://drpne2omhxcp3" path="res://Scripts/gameplay/menu/info.gd" id="1_gtpoc"]
+[ext_resource type="Texture2D" uid="uid://d4dkbw1bt6grg" path="res://Assets/Menu/HXC8xAA.png" id="2_mn7y2"]
+[ext_resource type="Texture2D" uid="uid://c0htc2pfs17go" path="res://Assets/Menu/ui_arrow_left_right.png" id="3_kh0vq"]
+
+[node name="info" type="PanelContainer"]
+offset_right = 1152.0
+offset_bottom = 192.0
+script = ExtResource("1_gtpoc")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_mn7y2")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="arrow" type="TextureRect" parent="NinePatchRect"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 1104.0
+offset_top = 144.0
+offset_right = 1136.0
+offset_bottom = 176.0
+texture = ExtResource("3_kh0vq")
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 192.0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="info_text" type="RichTextLabel" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2

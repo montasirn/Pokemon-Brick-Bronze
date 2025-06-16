@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbes82vvrak6c"]
+
+[ext_resource type="Script" uid="uid://bjjawwvki1dia" path="res://Scripts/gameplay/menu/menu_button.gd" id="1_rjie7"]
+[ext_resource type="Texture2D" uid="uid://c0htc2pfs17go" path="res://Assets/Menu/ui_arrow_left_right.png" id="2_k5i4o"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 256.0
+offset_bottom = 128.0
+script = ExtResource("1_rjie7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_k5i4o")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2

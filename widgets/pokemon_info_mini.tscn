@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi0kx1bpjndif"]
+
+[ext_resource type="Theme" uid="uid://btg26ghgsrnot" path="res://widgets/theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://ci874i1nrvrrw" path="res://Scripts/gameplay/utilities/pokemon_info.gd" id="1_6qcw1"]
+[ext_resource type="Texture2D" uid="uid://cagbsp0waa6sa" path="res://widgets/sprites/l.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://y5spqjijv2nb" path="res://widgets/sprites/hp.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dlrgwgmiuolqm" path="res://widgets/sprites/progress.png" id="5"]
+
+[node name="pokemon_info_mini" type="ReferenceRect"]
+script = ExtResource("1_6qcw1")
+
+[node name="level" type="Label" parent="."]
+layout_mode = 0
+theme = ExtResource("1")
+text = "5"
+
+[node name="level_label" type="Sprite2D" parent="."]
+position = Vector2(83, 3.1398)
+texture = ExtResource("2")
+
+[node name="name" type="Label" parent="."]
+layout_mode = 0
+theme = ExtResource("1")
+text = "BULBASAUR"
+
+[node name="hp_bar" type="Node2D" parent="."]
+position = Vector2(8, 9)
+
+[node name="hp" type="Label" parent="hp_bar"]
+theme = ExtResource("1")
+text = "20/ 20"
+
+[node name="label" type="Sprite2D" parent="hp_bar"]
+position = Vector2(6, 4)
+texture = ExtResource("4")
+
+[node name="bar" type="Sprite2D" parent="hp_bar"]
+position = Vector2(40, 4)
+texture = ExtResource("5")
+
+[node name="line" type="Line2D" parent="hp_bar/bar"]
+position = Vector2(-23.9543, 0)
+points = PackedVector2Array(0, 0, 48, 0)
+width = 2.0
+default_color = Color(0.133333, 0.494118, 0.192157, 1)

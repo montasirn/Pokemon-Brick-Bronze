@@ -7,7 +7,7 @@ signal done
 @export var player: Resource
 @export var enemy: Resource
 
-@onready var info_box_ = find_child("info")
+@onready var info_box_ = get_node("info")
 @onready var action_menu_ = find_child("action_menu")
 @onready var items_ = find_child("items")
 @onready var fight_ = find_child("fight_menu")
@@ -17,6 +17,43 @@ signal done
 @onready var enemy_graphics_ = find_child("enemy")
 
 var menu_stack_ := []
+
+func _ready():
+		action_menu_.set_process_input(false)
+		action_menu_.connect("activated", func(idx):
+			match idx:
+				0:
+					push_menu_(fight_)
+				1:
+					push_menu_(items_)
+				2:
+					_on_run()
+				3:
+					push_menu_(pokemon_)
+					pokemon_.info.set_text("Bring out which HATeMON?")
+		)
+		fight_.connect("activated", func(attack_idx):
+			_on_attack_activated(attack_idx)
+		)
+		fight_.set_process_input(false)
+		# Items Menu
+		items_.connect("activated", func(item_idx):
+			_on_item_activated(item_idx)
+		)
+		items_.set_process_input(false)
+		# Pokemon Menu
+		pokemon_.pokemon = player.pokemon
+		pokemon_.set_process_input(false)
+		pokemon_.connect("activated", func(pokemon_idx):
+			_on_pokemon_select_activated(pokemon_idx)
+			)
+		# Yes/No Menu
+		yes_no_menu_.set_process_input(false)
+		yes_no_menu_.connect("activated", func(yes_no_idx):
+			_on_yes_no_activated(yes_no_idx)
+		)
+		
+		game_()
 
 class Action:
 	enum Type {
@@ -33,32 +70,6 @@ class Action:
 
 	var type:int = Type.cancel
 	var idx := 0
-
-func _ready():
-	player_graphics_.trainer.replace_child_with_scene(player.battle_graphic)
-	enemy_graphics_.trainer.replace_child_with_scene(enemy.battle_graphic)
-	
-	action_menu_.set_process_input(false)
-	action_menu_.connect("fight", Callable(self, "push_menu_").bind(find_child("fight_menu")))
-	action_menu_.connect("item", Callable(self, "push_menu_").bind(items_))
-	action_menu_.connect("run", Callable(self, "_on_run"))
-	action_menu_.connect("pokemon", Callable(self, "push_menu_").bind(pokemon_))
-	action_menu_.connect("pokemon", Callable(pokemon_.info, "set_text").bind("Bring out which HATeMON?"))
-
-	fight_.connect("activated", Callable(self, "_on_attack_activated"))
-	fight_.set_process_input(false)
-
-	items_.connect("activated", Callable(self, "_on_item_activated"))
-	items_.set_process_input(false)
-
-	pokemon_.pokemon = player.pokemon
-	pokemon_.set_process_input(false)
-	pokemon_.connect("activated", Callable(self, "_on_pokemon_select_activated"))
-
-	yes_no_menu_.set_process_input(false)
-	yes_no_menu_.connect("activated", Callable(self, "_on_yes_no_activated"))
-
-	game_()
 
 func push_menu_(menu) -> void:
 	if not menu_stack_.is_empty():
